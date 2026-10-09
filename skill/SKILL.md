@@ -28,7 +28,8 @@ $PY $S/transcribe.py islands                        # -> transcript_islands.json
 ```
 - Best quality/speed: **faster-whisper `medium`, compute_type `float32`, beam_size 5, language `vi`, word_timestamps, condition_on_previous_text off**. These are the script defaults.
 - `large-v3` float32 is the most accurate but slow, and it gets OOM-killed on a 16 GB shared box. Workaround: `ECV_THREADS=4 CT2_USE_MKL=0 $PY $S/transcribe.py full --model large-v3 --chunk 22` (20–25 s chunks split at silences).
-- **Never use int8 + beam 1 on Vietnamese.** It hallucinates and skips about half the speech.
+- **Never use int8 + beam 1 on Vietnamese.** It hallucinates and skips about half the speech. Even int8 + beam 5 produced garbage in testing.
+- Before a run, check `env | grep ECV_`. A leftover `ECV_CT=int8` / `ECV_MODEL=small` export silently ruins the transcript.
 - On a busy box, use `nice -n 10` and 2–4 threads (`ECV_THREADS`).
 
 ## 2. Map takes
