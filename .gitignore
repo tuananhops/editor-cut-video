@@ -1,0 +1,24 @@
+# media & intermediates
+*.mp4
+*.mov
+*.MOV
+*.mkv
+*.m4a
+*.wav
+*.mp3
+*.npy
+# models / caches
+models/
+*.bin
+.cache/
+# virtualenvs
+.venv*/
+venv/
+env/
+__pycache__/
+*.pyc
+# work dirs & secrets
+work/
+out/
+.env
+*.token

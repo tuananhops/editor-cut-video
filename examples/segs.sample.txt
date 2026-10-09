@@ -1,0 +1,5 @@
+# start end (source seconds), output order. Cut inside silent gaps, 0.05-0.1 s padding.
+1.20 3.05    # hook, take 2 (take 1 dropped: false start)
+3.52 6.38
+7.83 9.42    # mid-sentence splice -> listen
+12.60 14.62
